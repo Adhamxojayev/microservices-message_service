@@ -3,6 +3,9 @@ import mesageService from "./message.js";
 import grpc from "grpc";
 import path from 'path';
 
+const PORT = process.env.PORT ?? 5001;
+const HOST = "localhost";
+
 const protoPath = path.resolve(process.cwd(), 'interface.proto');
 
 const packageDefinition = protoLoader.loadSync(protoPath, {
@@ -20,10 +23,7 @@ function main () {
     const server = new grpc.Server();
     server.addService(messageProto.messageService.service, mesageService);
 
-    server.bind(
-      `https://microservices-message-service.herokuapp.com/`,
-      grpc.ServerCredentials.createInsecure()
-    );
+    server.bind(`${HOST}:${PORT}`, grpc.ServerCredentials.createInsecure());
     server.start();
 }
 main();
