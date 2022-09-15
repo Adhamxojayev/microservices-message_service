@@ -3,7 +3,7 @@ import mesageService from "./message.js";
 import grpc from "grpc";
 import path from 'path';
 
-const PORT = process.env.PORT ?? 5001;
+const PORT = process.env.PORT || 5001;
 const HOST = "localhost";
 
 const protoPath = path.resolve(process.cwd(), 'interface.proto');
