@@ -1,0 +1,20 @@
+syntax="proto3";
+package message_service;
+service messageService {
+    rpc SendMessage(sendMessageReq) returns(sendMessageRes){}
+}
+
+message sendMessageReq{
+    string message = 1;
+    string priority = 2;
+}
+
+message sendMessageRes {
+    bool success = 1;
+}
+
+
+
+
+
+
