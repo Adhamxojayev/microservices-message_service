@@ -4,7 +4,7 @@ import grpc from "grpc";
 import path from 'path';
 
 const PORT = process.env.PORT ?? 5001;
-const HOST = "localhost";
+const HOST = "0.0.0.0";
 
 const protoPath = path.resolve(process.cwd(), 'interface.proto');
 
